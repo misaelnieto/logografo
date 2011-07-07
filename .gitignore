@@ -1,7 +1,11 @@
 *.pyc
 *.pyo
+*~
 .installed.cfg
 bin/
-etc/
-setup.py
-src/
+develop-eggs/
+*egg-info/
+extends-cache/
+parts/
+*.wpr
+*.wpu
