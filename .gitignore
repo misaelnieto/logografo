@@ -1,0 +1,7 @@
+*.pyc
+*.pyo
+.installed.cfg
+bin/
+etc/
+setup.py
+src/
