@@ -28,3 +28,8 @@ Check some basic information about the page you visit:
 
     >>> '<h1>Logographer</h1>' in browser.contents #ellipsis
     True
+    
+Add a bundle:
+
+    >>> browser.getLink('Add bundle').click()
+    

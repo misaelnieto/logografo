@@ -16,10 +16,18 @@
     <div class="menu">
       <metal:nav define-slot="nav">
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/add">Add History events</a></li>
-        <li><a href="#footer-area">About</a></li>
+        <li><a href="/" tal:attributes="href python:view.url(context)" 
+               i18n:translate="">Home</a></li>
+        <li><a href="/login" i18n:translate="">Login</a></li>
+        <li><a href="@@add" 
+               tal:attributes="href python: view.url(context) + '/@@add'" 
+               i18n:translate="">Add bundle</a></li>
+        <li><a href="/add" 
+               tal:attributes="href python: view.url(context) + '/@@add-history'"
+               i18n:translate="">Add History events</a></li>        
+        <li><a href="#footer-area" 
+               tal:attributes="href python: view.url(context) + '/about'"
+               i18n:translate="">About</a></li>
       </ul>
       </metal:nav>
     </div>
