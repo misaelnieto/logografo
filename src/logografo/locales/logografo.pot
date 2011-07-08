@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Meaningless\n"
-"POT-Creation-Date: Fri Jul  8 03:00:04 2011\n"
+"POT-Creation-Date: Fri Jul  8 18:47:53 2011\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Zope 3 Developers <zope-dev@zope.org>\n"
@@ -52,11 +52,11 @@ msgid "Login"
 msgstr ""
 
 #: logografo/app_templates/master.pt:22
-msgid "Add bundle"
+msgid "[+] Bundle"
 msgstr ""
 
 #: logografo/app_templates/master.pt:25
-msgid "Add History events"
+msgid "[+] Event"
 msgstr ""
 
 #: logografo/app_templates/master.pt:28
@@ -92,7 +92,7 @@ msgid "Legalese"
 msgstr ""
 
 #: logografo/bundle.py:17
-#: logografo/historyevent.py:14
+#: logografo/historyevent.py:17
 msgid "Title"
 msgstr ""
 
@@ -104,58 +104,72 @@ msgstr ""
 msgid "Just a brief description of this bundle"
 msgstr ""
 
-#: logografo/bundle.py:69
+#: logografo/bundle.py:70
 msgid "Add a bundle of events"
 msgstr ""
 
-#: logografo/bundle.py:75
+#: logografo/bundle.py:76
 msgid "Add Bundle"
 msgstr ""
 
-#: logografo/bundle_templates/add.pt:18
-#: logografo/bundle_templates/add.pt:26
-#: logografo/bundle_templates/add.pt:45
-#: logografo/bundle_templates/add.pt:51
+#: logografo/bundle_templates/add.pt:25
+#: logografo/bundle_templates/add.pt:44
+#: logografo/bundle_templates/add.pt:50
+#: logografo/historyevent_templates/add.pt:36
+#: logografo/historyevent_templates/add.pt:54
+#: logografo/historyevent_templates/add.pt:60
 msgid "${DYNAMIC_CONTENT}"
 msgstr ""
 
-#: logografo/historyevent.py:15
-msgid "Write a title for the Historic Event"
+#: logografo/historyevent.py:108
+msgid "Select event bundle"
 msgstr ""
 
-#: logografo/historyevent.py:18
-msgid "Brief description of the event"
+#: logografo/historyevent.py:109
+msgid "Every event must be inside a bundle"
 msgstr ""
 
-#: logografo/historyevent.py:21
-msgid "Should the event have a duration?"
-msgstr ""
-
-#: logografo/historyevent.py:22
-msgid "Events that have a duration must specify an end date"
-msgstr ""
-
-#: logografo/historyevent.py:25
-msgid "Event date"
-msgstr ""
-
-#: logografo/historyevent.py:26
-msgid "This is the date of the event (or when the event started)"
-msgstr ""
-
-#: logografo/historyevent.py:29
-msgid "The event ended on this date"
-msgstr ""
-
-#: logografo/historyevent.py:34
-msgid "When adding duration events, you must provide the end date."
-msgstr ""
-
-#: logografo/historyevent.py:96
+#: logografo/historyevent.py:113
 msgid "Add a History Event"
 msgstr ""
 
-#: logografo/historyevent.py:98
+#: logografo/historyevent.py:119
 msgid "Add"
+msgstr ""
+
+#: logografo/historyevent.py:18
+msgid "Write a title for the Historic Event"
+msgstr ""
+
+#: logografo/historyevent.py:21
+msgid "Brief description of the event"
+msgstr ""
+
+#: logografo/historyevent.py:24
+msgid "Should the event have a duration?"
+msgstr ""
+
+#: logografo/historyevent.py:25
+msgid "Events that have a duration must specify an end date"
+msgstr ""
+
+#: logografo/historyevent.py:28
+msgid "Event date"
+msgstr ""
+
+#: logografo/historyevent.py:29
+msgid "This is the date of the event (or when the event started)"
+msgstr ""
+
+#: logografo/historyevent.py:32
+msgid "The event ended on this date"
+msgstr ""
+
+#: logografo/historyevent.py:38
+msgid "When adding duration events, you must provide the end date."
+msgstr ""
+
+#: logografo/historyevent_templates/add.pt:20
+msgid "Events must be grouped together in bundles. Try adding one first."
 msgstr ""
 

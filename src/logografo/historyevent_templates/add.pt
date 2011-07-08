@@ -11,9 +11,20 @@
 <body>
   <metal:content fill-slot="content">
     <section id="singlecol">
-      <article>
+      <article tal:define="bundles context/getContents">
+        <tal:nobundles condition="not: bundles">
+          <h2 i18n.translate="">Oops! There are no bundles</h2>
+          <p>
+            <img src="../images/label_64.png" width="64" height="64" alt="tag"
+              class="alignleft" tal:attributes="src static/images/label_64.png" />
+              <span i18n:translate="">
+              Events must be grouped together in bundles. Try adding one first.
+              </span>
+          </p>
+        </tal:nobundles>
         <form action="." tal:attributes="action request/URL" method="post"
-          class="edit-form" enctype="multipart/form-data">
+          class="edit-form" enctype="multipart/form-data"
+          tal:condition="bundles">
 
           <h2 tal:condition="view/label"
               tal:content="view/label">Label</h2>
@@ -32,7 +43,6 @@
               </li>
             </ul>
           </div>
-
           <table class="form-fields">
             <tbody>
               <tal:block repeat="widget view/widgets">

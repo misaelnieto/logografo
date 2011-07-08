@@ -16,16 +16,16 @@
     <div class="menu">
       <metal:nav define-slot="nav">
       <ul>
-        <li><a href="/" tal:attributes="href python:view.url(context)" 
+        <li><a href="/" tal:attributes="href python:view.url(context)"
                i18n:translate="">Home</a></li>
         <li><a href="/login" i18n:translate="">Login</a></li>
-        <li><a href="@@add" 
-               tal:attributes="href python: view.url(context) + '/@@add'" 
-               i18n:translate="">Add bundle</a></li>
-        <li><a href="/add" 
-               tal:attributes="href python: view.url(context) + '/@@add-history'"
-               i18n:translate="">Add History events</a></li>        
-        <li><a href="#footer-area" 
+        <li><a href="@@add"
+               tal:attributes="href python: view.url(context) + '/@@add-bundle'"
+               i18n:translate="">[+] Bundle</a></li>
+        <li><a href="/add"
+               tal:attributes="href python: view.url(context) + '/@@add-event'"
+               i18n:translate="">[+] Event</a></li>
+        <li><a href="#footer-area"
                tal:attributes="href python: view.url(context) + '/about'"
                i18n:translate="">About</a></li>
       </ul>
@@ -35,15 +35,15 @@
   <header><!-- header -->
     <h1 i18n:translate="">Logographer</h1>
   </header><!-- end of header -->
-  
+
   <metal:content define-slot="content">
     <section id="singlecol">
        <article>
-         <h2>Review disparate history events in a timeline</h2>	  
+         <h2>Review disparate history events in a timeline</h2>
          <p i18n:translate="">
-           <img src="../images/label_64.png" width="64" height="64" alt="tag" 
-             class="alignleft"> 		   
-             Make your selection of <em>bundled</em> events and see if they make up some trend. 
+           <img src="../images/label_64.png" width="64" height="64" alt="tag"
+             class="alignleft">
+             Make your selection of <em>bundled</em> events and see if they make up some trend.
          </p>
        </article>
      </section>

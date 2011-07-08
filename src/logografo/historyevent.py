@@ -1,8 +1,11 @@
 import grok
 from zope import interface, schema
+from zope.schema.interfaces import IContextSourceBinder
+from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 
 from logografo import LogografoMessageFactory as _
-from logografo.bundle import EventBundle
+from logografo.app import Logografo
+from logografo import resource
 
 class IHistoryEvent(interface.Interface):
     """
@@ -26,7 +29,8 @@ class IHistoryEvent(interface.Interface):
                             description=_(u'This is the date of the event (or when the event started)'),
                             required = True)
 
-    end = schema.TextLine(title=_(u'The event ended on this date'))
+    end = schema.TextLine(title=_(u'The event ended on this date'),
+                          required = False)
 
     @interface.invariant
     def check_duration(obj):
@@ -86,14 +90,31 @@ class Edit (grok.EditForm):
     template = grok.PageTemplateFile('bundle_templates/add.pt')
     form_fields = grok.AutoFields(HistoryEvent)
 
+def list_bundles(context):
+    return SimpleVocabulary([SimpleTerm(b,
+                                        token = b.id,
+                                        title = b.title) for b in context.values()])
+
+interface.alsoProvides(list_bundles, IContextSourceBinder)
+
 class Add(grok.AddForm):
     """
-    An AddForm for a HistoryEvent. Context is an Eventbundle
+    An AddForm for a HistoryEvent. Context is an Logografo
     """
-    grok.context(EventBundle)
+    grok.context(Logografo)
+    grok.name('add-event')
     template = grok.PageTemplateFile('bundle_templates/add.pt')
-    form_fields = grok.AutoFields(HistoryEvent)
+    form_fields = grok.Fields(
+        bundle = schema.Choice(title=_(u'Select event bundle'),
+                               description = _(u'Every event must be inside a bundle'),
+                               source = list_bundles,
+                               required = True)
+    ) + grok.AutoFields(HistoryEvent).omit('id')
     label = _(u'Add a History Event')
+
+    def update(self):
+        resource.style.need()
+        super(Add, self).update()
 
     @grok.action(_(u'Add'))
     def add(self, **data):
@@ -102,4 +123,5 @@ class Add(grok.AddForm):
         """
         hevent = HistoryEvent()
         self.applyData(hevent, **data)
-        self.context.addHistoryEvent(hevent)
+        bundle = data.get('bundle')
+        bundle.addHistoryEvent(hevent)

@@ -45,7 +45,7 @@ class EventBundle(grok.Container):
         Adds a HistoryEvent to this container.
         """
         name = INameChooser(self).chooseName(hevent.title, hevent)
-        bundle.id = name
+        hevent.id = name
         self[name] = hevent
 
     def getContents(self):
@@ -57,14 +57,15 @@ class Edit (grok.EditForm):
     Implicit context is EventBundle
     """
     template = grok.PageTemplateFile('bundle_templates/add.pt')
-    form_fields = grok.AutoFields(EventBundle)
+    form_fields = grok.AutoFields(EventBundle).omit('id')
 
 class Add(grok.AddForm):
     """
     An AddForm for a EventBundle
     """
     grok.context(Logografo)
-    form_fields = grok.AutoFields(IEventBundle)
+    grok.name('add-bundle')
+    form_fields = grok.AutoFields(IEventBundle).omit('id')
     template = grok.PageTemplateFile('bundle_templates/add.pt')
     label = _(u'Add a bundle of events')
 
