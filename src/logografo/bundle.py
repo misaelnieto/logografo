@@ -32,7 +32,7 @@ class EventBundle(grok.Container):
     This is an Event bundle that will group HistoryEvents
     """
     grok.implements(IEventBundle)
-    
+
     id = None
     title = None
     description = None
@@ -47,7 +47,7 @@ class EventBundle(grok.Container):
         name = INameChooser(self).chooseName(hevent.title, hevent)
         bundle.id = name
         self[name] = hevent
-        
+
 class Edit (grok.EditForm):
     """
     An EditForm for a HistoryEvent.

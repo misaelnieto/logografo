@@ -10,7 +10,7 @@ class IHistoryEvent(interface.Interface):
     """
     id = schema.ASCIILine(title = u'id',
                           required = False)
-    
+
     title = schema.TextLine(title = _(u'Title'),
                             description= _(u'Write a title for the Historic Event'),
                             required = True)
@@ -20,13 +20,13 @@ class IHistoryEvent(interface.Interface):
     durationEvent = schema.Bool(title=_(u'Should the event have a duration?'),
                            description = _(u'Events that have a duration must specify an end date'),
                            required = True)
-    
+
     start = schema.TextLine(title=_(u'Event date'),
                             description=_(u'This is the date of the event (or when the event started)'),
                             required = True)
-    
+
     end = schema.TextLine(title=_(u'The event ended on this date'))
-    
+
     @interface.invariant
     def check_duration(obj):
         if obj.durationEvent and not obj.end:
@@ -36,7 +36,7 @@ class IHistoryEvent(interface.Interface):
 def isValidEvent(data):
     """
     Verifies if the event data is valid.
-    
+
     Events are dictionaries with some mandatory and optional entries.
 
     Mandatory entries are:
@@ -70,13 +70,13 @@ class HistoryEvent(grok.Model):
     durationEvent = False
     start = None
     end = None
-    
+
 class Index(grok.DisplayForm):
     """
     This view makes it possible to view a single history event.
     """
     form_fields  = grok.AutoFields(HistoryEvent)
-    
+
 class Edit (grok.EditForm):
     """
     An EditForm for a HistoryEvent
@@ -84,7 +84,7 @@ class Edit (grok.EditForm):
     """
     template = grok.PageTemplateFile('bundle_templates/add.pt')
     form_fields = grok.AutoFields(HistoryEvent)
-    
+
 class Add(grok.AddForm):
     """
     An AddForm for a HistoryEvent. Context is an Eventbundle
@@ -93,7 +93,7 @@ class Add(grok.AddForm):
     template = grok.PageTemplateFile('bundle_templates/add.pt')
     form_fields = grok.AutoFields(HistoryEvent)
     label = _(u'Add a History Event')
-    
+
     @grok.action(_(u'Add'))
     def add(self, **data):
         """
@@ -102,4 +102,3 @@ class Add(grok.AddForm):
         hevent = HistoryEvent()
         self.applyData(hevent, **data)
         self.context.addHistoryEvent(hevent)
-        
