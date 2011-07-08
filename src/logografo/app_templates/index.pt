@@ -30,6 +30,20 @@
             class="alignright" tal:attributes="src static/images/label_pr.png">
             Y aqui van las opciones de control del timeline
         </p>
+        <form method="POST" action="#" tal:define="bundles context/listBundles">
+            <select multiple="" size="3" class="bundles">
+               <option value="bundle1"
+                    title="descripcion detallada"
+                    class="vtip"
+                    tal:condition="bundles"
+                    tal:repeat="bundle bundles"
+                    tal:attributes="title bundle/description; value bundle/id"
+                    tal:content="bundle/title">Bundle 1</option>
+
+               <option disabled="" tal:condition="not: bundles" i18n:translate="">There are no bundles yet</option>
+            </select>
+            <input type="submit" i18n:attributes="value"  value="Compare bundles"/>
+        </form>
       </article>
     </section>
     <section id="singlecol">
