@@ -8,6 +8,9 @@ class IHistoryEvent(interface.Interface):
     """
     Schema for a History event
     """
+    id = schema.ASCIILine(title = u'id',
+                          required = False)
+    
     title = schema.TextLine(title = _(u'Title'),
                             description= _(u'Write a title for the Historic Event'),
                             required = True)
@@ -61,11 +64,12 @@ def isValidEvent(data):
 
 class HistoryEvent(grok.Model):
     grok.implements(IHistoryEvent)
-    title = u''
-    description = u''
+    id = None
+    title = None
+    description = None
     durationEvent = False
-    start = u''
-    end = u''        
+    start = None
+    end = None
     
 class Index(grok.DisplayForm):
     """
