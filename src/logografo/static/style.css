@@ -292,3 +292,21 @@ color: #333;
     border: 1px;
     height: 450px;
 }
+
+.bundles {
+    width: 100%;
+    border: 1px solid #EEE;
+    margin: 1em auto 0.2em;
+    padding: 0.2em;
+    height: 12em;
+    background: transparent;
+}
+
+.bundles option{
+    line-height: 1.2em;
+    font-size: 1.2em;
+    margin: 0.2em 0.5em;
+}
+
+p#vtip { display: none; position: absolute; padding: 10px; left: 5px; font-size: 0.8em; background-color: white; border: 1px solid #CC9900; -moz-border-radius: 5px; -webkit-border-radius: 5px; z-index: 9999 }
+p#vtip #vtipArrow { position: absolute; top: -10px; left: 5px }
