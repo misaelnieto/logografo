@@ -30,7 +30,7 @@
             class="alignright" tal:attributes="src static/images/label_pr.png">
             Y aqui van las opciones de control del timeline
         </p>
-        <form method="POST" action="#" tal:define="bundles context/listBundles">
+        <form method="POST" action="#" tal:define="bundles context/getContents">
             <select multiple="" size="3" class="bundles">
                <option value="bundle1"
                     title="descripcion detallada"

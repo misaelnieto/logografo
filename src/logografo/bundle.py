@@ -48,6 +48,9 @@ class EventBundle(grok.Container):
         bundle.id = name
         self[name] = hevent
 
+    def getContents(self):
+        return self.values()
+
 class Edit (grok.EditForm):
     """
     An EditForm for a HistoryEvent.

@@ -19,7 +19,7 @@ class Logografo(grok.Application, grok.Container):
         bundle.id = name
         self[name] = bundle
 
-    def listBundles(self):
+    def getContents(self):
         return self.values()
 
 class Index(grok.View):
