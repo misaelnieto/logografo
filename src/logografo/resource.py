@@ -7,4 +7,4 @@ library = Library('logografo', 'static')
 style = Resource(library, 'style.css')
 logografo_timeline = Resource(library, 'logografo_timeline.js')
 jquery_min = Resource(library, 'jquery-1.6.2.min.js')
-
+vtip = Resource(library, 'vtip.js')
