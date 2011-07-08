@@ -1,0 +1,66 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:define-macro="main"
+      i18n:domain="logografo">
+<head>
+<metal:js define-slot="javascript">
+</metal:js>
+</head>
+<body>
+<div id="wrapper"><!-- #wrapper -->
+  <nav><!-- top nav -->
+    <div class="menu">
+      <metal:nav define-slot="nav">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/add">Add History events</a></li>
+        <li><a href="#footer-area">About</a></li>
+      </ul>
+      </metal:nav>
+    </div>
+  </nav><!-- end of top nav -->
+  <header><!-- header -->
+    <h1 i18n:translate="">Logographer</h1>
+  </header><!-- end of header -->
+  
+  <metal:content define-slot="content">
+    <section id="singlecol">
+       <article>
+         <h2>Review disparate history events in a timeline</h2>	  
+         <p i18n:translate="">
+           <img src="../images/label_64.png" width="64" height="64" alt="tag" 
+             class="alignleft"> 		   
+             Make your selection of <em>bundled</em> events and see if they make up some trend. 
+         </p>
+       </article>
+     </section>
+  </metal:content>
+
+  <footer>
+    <section id="footer-area">
+    <section id="footer-outer-block">
+      <aside class="footer-segment first">
+        <h3 i18n:translate="">About this thing</h3>
+          <ul>
+            <li><a href="http://noenieto.com/" i18n:translate="">Who did this?</a></li>
+            <li><a href="https://github.com/tzicatl/logografo">Fork me!</a></li>
+            <li><a href="http://grok.zope.org" i18n:translate="">Powered by Grok</a></li>
+            <li><a href="http://freehtml5templates.com" i18n:translate="">Original template artwork</a></li>
+            </ul>
+      </aside><!-- end of #first footer segment -->
+      <aside class="footer-segment last">
+        <h3 i18n:translate="">Legalese</h3>
+          <p>Copyright &copy; 2011 <a href="http://noenieto.com">Noe Nieto</a></p>
+      </aside><!-- end of #last footer segment -->
+    </section><!-- end of footer-outer-block -->
+    </section><!-- end of footer-area -->
+  </footer>
+</div><!-- #wrapper -->
+<!-- I took this template from http://freehtml5templates.com and modified -->
+</body>
+</html>
