@@ -1,12 +1,46 @@
-<html>
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/@@master/macros/main"
+      i18n:domain="logografo">
 <head>
+<metal:js fill-slot="javascript">
+<script src="http://static.simile.mit.edu/timeline/api-2.3.0/timeline-api.js?bundle=true" type="text/javascript"></script>
+</metal:js>
 </head>
 <body>
-  <h1>Congratulations!</h1>
-
-  <p>Your Grok application is up and running.
-  Edit <code>logografo/app_templates/index.pt</code> to change
-  this page.</p>
-  <img tal:attributes="src static/evencaveman.jpg"/>
+  <metal:content fill-slot="content">
+    <section id="doublecols">
+      <article class="doubleblocks doubleleftblock">
+        <h2>Review disparate history events in a timeline</h2>
+        <p i18n:translate="">
+          <img src="../images/label_64.png" width="64" height="64" alt="tag"
+            class="alignleft" tal:attributes="src static/images/label_64.png">
+            Make your selection of <em>bundled</em> events and see if they make
+            up some trend.
+        </p>
+      </article>
+      <article class="doubleblocks doublerightblock">
+        <h2 i18n:translate="">Select the bundles to display</h2>
+        <p>
+          <img src="../images/label_pr.png" width="64" height="64" alt="tag"
+            class="alignright" tal:attributes="src static/images/label_pr.png">
+            Y aqui van las opciones de control del timeline
+        </p>
+      </article>
+    </section>
+    <section id="singlecol">
+      <article>
+        <div id="timeline"></div>
+        <noscript i18n:translate="">
+            This page uses JavaScript to show a graphic timeline of events.
+            Please, enable javascript for your browser.
+        </noscript>
+      </article>
+    </section>
+  </metal:content>
 </body>
 </html>
