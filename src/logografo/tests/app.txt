@@ -26,17 +26,5 @@ Check some basic information about the page you visit:
     >>> browser.url
     'http://localhost/app'
 
-    >>> print browser.contents
-    <html>
-    <head>
-    <link rel="stylesheet" type="text/css" href="http://localhost/fanstatic/logografo/style.css" />
-    <base href="http://localhost/app/@@index" />
-    </head>
-    <body>
-      <h1>Congratulations!</h1>
-      <p>Your Grok application is up and running.
-      Edit <code>logografo/app_templates/index.pt</code> to change
-      this page.</p>
-      <img src="http://localhost/fanstatic/logografo/evencaveman.jpg" />
-    </body>
-    </html>
+    >>> '<h1>Logographer</h1>' in browser.contents #ellipsis
+    True
