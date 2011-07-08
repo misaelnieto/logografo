@@ -15,7 +15,8 @@ class IHistoryEvent(interface.Interface):
                             description= _(u'Write a title for the Historic Event'),
                             required = True)
 
-    description = schema.Text(title = _(u'Brief description of the event'))
+    description = schema.Text(title = _(u'Brief description of the event'),
+                              required = False)
 
     durationEvent = schema.Bool(title=_(u'Should the event have a duration?'),
                            description = _(u'Events that have a duration must specify an end date'),
