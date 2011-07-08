@@ -1,0 +1,178 @@
+# #############################################################################
+#
+# Copyright (c) 2003-2004 Zope Foundation and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+# #############################################################################
+msgid ""
+msgstr ""
+"Project-Id-Version: Meaningless\n"
+"POT-Creation-Date: Fri Jul  8 03:00:04 2011\n"
+"PO-Revision-Date: 2011-07-08 02:37-0500\n"
+"Last-Translator: Noe Misael Nieto Arroyo <nnieto@noenieto.com>\n"
+"Language-Team: Spanish\n"
+"Language: es_MX\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: zope/app/locales/extract.py\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: logografo/app_templates/index.pt:20
+msgid ""
+"<img src=\"${DYNAMIC_CONTENT}\" width=\"64\" height=\"64\" alt=\"tag\" class="
+"\"alignleft\"> Make your selection of <em>bundled</em> events and see if "
+"they make up some trend."
+msgstr ""
+"<img src=\"${DYNAMIC_CONTENT}\" width=\"64\" height=\"64\" alt=\"tag\" class="
+"\"alignleft\"> Selecciona algunos <em>ramilletes</em> de eventos and ve si "
+"encuentras alguna tendencia."
+
+#: logografo/app_templates/index.pt:27
+msgid "Select the bundles to display"
+msgstr "Selecciona los ramilletes que se van a mostrar"
+
+#: logografo/app_templates/index.pt:43
+msgid "There are no bundles yet"
+msgstr "Todavía no hay ramilletes de eventos"
+
+#: logografo/app_templates/index.pt:45
+msgid "Compare bundles"
+msgstr "Comparar ramilletes"
+
+#: logografo/app_templates/index.pt:52
+msgid ""
+"This page uses JavaScript to show a graphic timeline of events. Please, "
+"enable javascript for your browser."
+msgstr ""
+"Esta página usa JavaScript para mostrar una línea de tiempo gráfica con "
+"eventos. Por favor, habilita JavaScript en tu navegador."
+
+#: logografo/app_templates/master.pt:19
+msgid "Home"
+msgstr "Inicio"
+
+#: logografo/app_templates/master.pt:21
+msgid "Login"
+msgstr "Entrar"
+
+#: logografo/app_templates/master.pt:22
+msgid "Add bundle"
+msgstr "Añadir ramillete"
+
+#: logografo/app_templates/master.pt:25
+msgid "Add History events"
+msgstr "Añadir eventos históricos"
+
+#: logografo/app_templates/master.pt:28
+msgid "About"
+msgstr "Acerca de"
+
+#: logografo/app_templates/master.pt:36
+msgid "Logographer"
+msgstr "Logógrafo"
+
+#: logografo/app_templates/master.pt:43
+msgid ""
+"<img src=\"../images/label_64.png\" width=\"64\" height=\"64\" alt=\"tag\" "
+"class=\"alignleft\"> Make your selection of <em>bundled</em> events and see "
+"if they make up some trend."
+msgstr ""
+"<img src=\"../images/label_64.png\" width=\"64\" height=\"64\" alt=\"tag\" "
+"class=\"alignleft\"> Selecciona algunos <em>ramilletes</em> de eventos and "
+"ve si encuentras alguna tendencia."
+
+#: logografo/app_templates/master.pt:56
+msgid "About this thing"
+msgstr "Acerca de esta cosa"
+
+#: logografo/app_templates/master.pt:58
+msgid "Who did this?"
+msgstr "¿Quién hizo esto?"
+
+#: logografo/app_templates/master.pt:60
+msgid "Powered by Grok"
+msgstr "Está hecho con Grok"
+
+#: logografo/app_templates/master.pt:61
+msgid "Original template artwork"
+msgstr "Plantilla ẃeb original"
+
+#: logografo/app_templates/master.pt:65
+msgid "Legalese"
+msgstr "Términos legales"
+
+#: logografo/bundle.py:17 logografo/historyevent.py:14
+msgid "Title"
+msgstr "Título"
+
+#: logografo/bundle.py:18
+msgid "Give a title to this Bundle, for example: \"Scientific discoveries\""
+msgstr ""
+"Escribe un título para este ramillete, por ejemplo \"Descubrimimentos "
+"Científicos\""
+
+#: logografo/bundle.py:21
+msgid "Just a brief description of this bundle"
+msgstr "Una breve descripción de este ramillete"
+
+#: logografo/bundle.py:69
+msgid "Add a bundle of events"
+msgstr "Añadir un ramillete de eventos"
+
+#: logografo/bundle.py:75
+msgid "Add Bundle"
+msgstr "Añadir Ramillete"
+
+#: logografo/bundle_templates/add.pt:18 logografo/bundle_templates/add.pt:26
+#: logografo/bundle_templates/add.pt:45 logografo/bundle_templates/add.pt:51
+msgid "${DYNAMIC_CONTENT}"
+msgstr ""
+
+#: logografo/historyevent.py:15
+msgid "Write a title for the Historic Event"
+msgstr "Escribe un título para este Evento Histórico"
+
+#: logografo/historyevent.py:18
+msgid "Brief description of the event"
+msgstr "Breve descripción del evento"
+
+#: logografo/historyevent.py:21
+msgid "Should the event have a duration?"
+msgstr "¿Quieres que este evento tenga cierta duración?"
+
+#: logografo/historyevent.py:22
+msgid "Events that have a duration must specify an end date"
+msgstr "Los eventos que tienen duración deben de tener una fecha de fin"
+
+#: logografo/historyevent.py:25
+msgid "Event date"
+msgstr "Fecha del evento"
+
+#: logografo/historyevent.py:26
+msgid "This is the date of the event (or when the event started)"
+msgstr "Esta es la fecha del evento (osea, cuando el evento comenzó)"
+
+#: logografo/historyevent.py:29
+msgid "The event ended on this date"
+msgstr "El evento terminó en esta fecha"
+
+#: logografo/historyevent.py:34
+msgid "When adding duration events, you must provide the end date."
+msgstr ""
+"Cuando añades eventos que tienen duración necesitas escribir la fecha de fin"
+
+#: logografo/historyevent.py:96
+msgid "Add a History Event"
+msgstr "Añadir Evento Histórico"
+
+#: logografo/historyevent.py:98
+msgid "Add"
+msgstr "Añadir"

@@ -44,6 +44,7 @@ setup(name='logografo',
                         'zope.fanstatic',
                         'grokcore.startup',
                         # Add extra requirements here
+                        'zope.i18n [compile]'
                         ],
       entry_points={
           'fanstatic.libraries': [
