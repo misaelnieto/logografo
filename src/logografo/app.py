@@ -91,10 +91,37 @@ class DeleteObject(grok.Form):
         """
         Action button callback.
         """
-
         del self.context.__parent__[self.context.id]
         self.status = _(u'Delete canceled')
         return self.redirect(self.listing_view)
+
+class IEditable(interface.Interface):
+    """
+    Marker interface for objects that need an edit form
+    """
+
+class EditObject(grok.EditForm):
+    """
+    An EditForm for a HistoryEvent.
+    Implicit context is EventBundle
+    """
+    grok.context(IEditable)
+    grok.name('edit')
+    grok.require('logografo.DoAnything')
+    template = grok.PageTemplateFile('app_templates/edit.pt')
+
+    #form_fields = grok.AutoFields(EventBundle).omit('id')
+
+    __edit_fields = []
+    @property
+    def form_fields(self):
+        if not self.__edit_fields:
+            self.__edit_fields = grok.AutoFields(self.context.__class__).omit('id')
+        return self.__edit_fields
+
+    def update(self):
+        resource.style.need()
+        super(EditObject, self).update()
 
 class Master(grok.View):
     """

@@ -5,7 +5,7 @@ from zope.container.interfaces import INameChooser
 
 from logografo import LogografoMessageFactory as _
 from logografo import resource
-from logografo.app import Logografo, IDeleteMe
+from logografo.app import Logografo, IDeleteMe, IEditable
 
 class IEventBundle(interface.Interface):
     """
@@ -31,7 +31,7 @@ class EventBundle(grok.Container):
     """
     This is an Event bundle that will group HistoryEvents
     """
-    grok.implements(IEventBundle, IDeleteMe)
+    grok.implements(IEventBundle, IDeleteMe, IEditable)
 
     id = None
     title = None
@@ -50,15 +50,6 @@ class EventBundle(grok.Container):
 
     def __repr__(self):
         return _(u'Event Bundle (%s)'%self.title)
-
-class Edit (grok.EditForm):
-    """
-    An EditForm for a HistoryEvent.
-    Implicit context is EventBundle
-    """
-    template = grok.PageTemplateFile('bundle_templates/add.pt')
-    grok.require('logografo.DoAnything')
-    form_fields = grok.AutoFields(EventBundle).omit('id')
 
 class Add(grok.AddForm):
     """

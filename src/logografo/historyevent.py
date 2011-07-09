@@ -4,7 +4,7 @@ from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 
 from logografo import LogografoMessageFactory as _
-from logografo.app import Logografo, IDeleteMe
+from logografo.app import Logografo, IDeleteMe, IEditable
 from logografo import resource
 
 class IHistoryEvent(interface.Interface):
@@ -38,7 +38,7 @@ class IHistoryEvent(interface.Interface):
             raise interface.Invalid(_(u'When adding duration events, you must provide the end date.'))
 
 class HistoryEvent(grok.Model):
-    grok.implements(IHistoryEvent, IDeleteMe)
+    grok.implements(IHistoryEvent, IDeleteMe, IEditable)
     id = None
     title = None
     description = None
@@ -48,23 +48,6 @@ class HistoryEvent(grok.Model):
 
     def __repr__(self):
         return _(u'History Event (%s)'%self.title)
-
-class Edit (grok.EditForm):
-    """
-    An EditForm for a HistoryEvent
-    Implicit context is HistoryEvent
-    """
-    def update(self):
-        resource.style.need()
-        super(Edit, self).update()
-
-    grok.require('logografo.DoAnything')
-    template = grok.PageTemplateFile('bundle_templates/add.pt')
-    form_fields = grok.AutoFields(HistoryEvent).omit('id')
-
-    def handle_edit_action(self, **data):
-        super (Edit, self).handle_edit_action(**data)
-
 
 def list_bundles(context):
     return SimpleVocabulary([SimpleTerm(b,
