@@ -21,7 +21,7 @@ class IEventBundle(interface.Interface):
     description = schema.Text(title = _(u'Just a brief description of this bundle'),
                               required= False)
 
-    def listEvents():
+    def getContents():
         """
         Returns a list of all events contained in this bundle
         """
@@ -36,9 +36,6 @@ class EventBundle(grok.Container):
     id = None
     title = None
     description = None
-
-    def listEvents(self):
-        return []
 
     def addHistoryEvent(self, hevent):
         """

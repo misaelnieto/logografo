@@ -31,5 +31,5 @@ Check some basic information about the page you visit:
     
 Add a bundle:
 
-    >>> browser.getLink('Add bundle').click()
+    >>> browser.getLink('List of bundles and events').click()
     

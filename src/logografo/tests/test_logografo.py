@@ -62,25 +62,29 @@ class MyFunctionalTestCase(unittest.TestCase):
 
         ##Test registered views for Logografo
         logografo = Logografo()
-
+        
+        #Master macros
+        view = queryMultiAdapter((logografo, TestRequest()), name='master')
+        self.assertTrue(view is not None)
+        
         #index
         view = queryMultiAdapter((logografo, TestRequest()), name='index')
         self.assertTrue(view is not None)
 
-        #add a bundle
-        view = queryMultiAdapter((logografo, TestRequest()), name='add')
+        #index
+        view = queryMultiAdapter((logografo, TestRequest()), name='listing')
+        self.assertTrue(view is not None)
+        
+        #add a EventBundle
+        view = queryMultiAdapter((logografo, TestRequest()), name='add-bundle')
         self.assertTrue(view is not None)
 
+        #add a HistoryEvent
+        view = queryMultiAdapter((logografo, TestRequest()), name='add-event')
+        self.assertTrue(view is not None)
+        
         ##Now test registered views for EventBundle
         eventbundle = EventBundle()
-
-        #view -- eventbundle does not have edit view -should it have?
-        view = queryMultiAdapter((eventbundle, TestRequest()), name='index')
-        self.assertTrue(view is None)
-
-        #add
-        view = queryMultiAdapter((eventbundle, TestRequest()), name='add')
-        self.assertTrue(view is not None)
 
         #edit
         view = queryMultiAdapter((eventbundle, TestRequest()), name='edit')
@@ -88,10 +92,6 @@ class MyFunctionalTestCase(unittest.TestCase):
 
         ##Finally, test registered views for HistoryEvent
         historyevent = HistoryEvent()
-
-        #index
-        view = queryMultiAdapter((historyevent, TestRequest()), name='index')
-        self.assertTrue(view is not None)
 
         #edit
         view = queryMultiAdapter((historyevent, TestRequest()), name='edit')

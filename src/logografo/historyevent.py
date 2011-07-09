@@ -37,36 +37,6 @@ class IHistoryEvent(interface.Interface):
         if obj.durationEvent and not obj.end:
             raise interface.Invalid(_(u'When adding duration events, you must provide the end date.'))
 
-
-def isValidEvent(data):
-    """
-    Verifies if the event data is valid.
-
-    Events are dictionaries with some mandatory and optional entries.
-
-    Mandatory entries are:
-
-    - title
-    - durationEvent
-    - start
-    - end (Only mandatory if durationEvent is True
-
-    Optional entries are
-
-    - description
-    - Any other I cannot think of right now.
-    """
-    if isinstance(data, dict):
-        mandatory = ['title', 'durationEvent', 'start']
-        conditional = ['end']
-        mpoints = sum(map(lambda x: x in data.keys(), mandatory))
-        cpoints = sum(map(lambda x: x in data.keys(), conditional))
-        if mpoints == len(mandatory):
-            if data['durationEvent']:
-                return cpoints == len(conditional)
-            return True
-    return False
-
 class HistoryEvent(grok.Model):
     grok.implements(IHistoryEvent)
     id = None
@@ -75,12 +45,6 @@ class HistoryEvent(grok.Model):
     durationEvent = False
     start = None
     end = None
-
-class Index(grok.DisplayForm):
-    """
-    This view makes it possible to view a single history event.
-    """
-    form_fields  = grok.AutoFields(HistoryEvent)
 
 class Edit (grok.EditForm):
     """
