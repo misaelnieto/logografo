@@ -87,6 +87,7 @@ class Edit (grok.EditForm):
     An EditForm for a HistoryEvent
     Implicit context is HistoryEvent
     """
+    grok.require('logografo.DoAnything')
     template = grok.PageTemplateFile('bundle_templates/add.pt')
     form_fields = grok.AutoFields(HistoryEvent)
 
@@ -103,6 +104,7 @@ class Add(grok.AddForm):
     """
     grok.context(Logografo)
     grok.name('add-event')
+    grok.require('logografo.DoAnything')
     template = grok.PageTemplateFile('bundle_templates/add.pt')
     form_fields = grok.Fields(
         bundle = schema.Choice(title=_(u'Select event bundle'),

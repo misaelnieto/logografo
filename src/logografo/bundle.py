@@ -57,6 +57,7 @@ class Edit (grok.EditForm):
     Implicit context is EventBundle
     """
     template = grok.PageTemplateFile('bundle_templates/add.pt')
+    grok.require('logografo.DoAnything')
     form_fields = grok.AutoFields(EventBundle).omit('id')
 
 class Add(grok.AddForm):
@@ -65,6 +66,7 @@ class Add(grok.AddForm):
     """
     grok.context(Logografo)
     grok.name('add-bundle')
+    grok.require('logografo.DoAnything')
     form_fields = grok.AutoFields(IEventBundle).omit('id')
     template = grok.PageTemplateFile('bundle_templates/add.pt')
     label = _(u'Add a bundle of events')
