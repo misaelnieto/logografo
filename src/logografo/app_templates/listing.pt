@@ -30,6 +30,11 @@
                  tal:attributes="href python: view.url(bundle) + '/@@edit'"
                  i18n:translate="">Edit
               </a>
+              &nbsp;|&nbsp;
+              <a href="#"
+                 tal:attributes="href python: view.url(bundle) + '/@@delete'"
+                 i18n:translate="">Delete
+              </a>
             </div>
             <table>
               <tr>

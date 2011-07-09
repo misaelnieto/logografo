@@ -4,8 +4,9 @@ import unicodedata
 import grok
 from zope.container.contained import NameChooser
 from zope.container.interfaces import INameChooser
-from zope.interface import Interface
+from zope import interface
 from logografo import resource
+from logografo import LogografoMessageFactory as _
 
 class Logografo(grok.Application, grok.Container):
     """
@@ -49,11 +50,57 @@ class Listing(grok.View):
         resource.jquery_min.need()
         resource.listing_js.need()
 
+class IDeleteMe(interface.Interface):
+    """
+    Marker interface for objects that accept deletion
+    """
+    title = interface.Attribute(u'Title of the object')
+
+    def __repr__():
+        """ Implementor should render well as string"""
+
+class DeleteObject(grok.Form):
+    grok.name('delete')
+    grok.context(IDeleteMe)
+    grok.require('logografo.DoAnything')
+    template = grok.PageTemplateFile('app_templates/delete.pt')
+    form_fields = []
+
+    @property
+    def label (self):
+        return _(u'Do you really want to delete "%s"?'%self.context)
+
+    def update(self):
+        resource.style.need()
+        super(DeleteObject, self).update()
+
+    @property
+    def listing_view(self):
+        return self.application_url() + '/@@listing'
+
+    @grok.action(_(u'Cancel'))
+    def cancel(self, **data):
+        """
+        Action button callback.
+        """
+        self.status = _(u'Delete canceled')
+        return self.redirect(self.listing_view)
+
+    @grok.action(_(u'Do it'))
+    def doit(self, **data):
+        """
+        Action button callback.
+        """
+
+        del self.context.__parent__[self.context.id]
+        self.status = _(u'Delete canceled')
+        return self.redirect(self.listing_view)
+
 class Master(grok.View):
     """
     This is the main macro for consistent look & field
     """
-    grok.context(Interface)
+    grok.context(interface.Interface)
 
 class ContentNameChooser(grok.Adapter, NameChooser):
     grok.context(grok.Container)

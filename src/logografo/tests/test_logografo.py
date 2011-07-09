@@ -16,8 +16,14 @@ from logografo.bundle import EventBundle
 
 class MyTestCase(unittest.TestCase):
 
-    def test_foo(self):
-        self.assertEqual(1, 1)
+    def test_event_and_bundle_repr(self):
+        obj = EventBundle()
+        obj.title = u'hello'
+        self.assertEqual(str(obj), u'Event Bundle (hello)')
+
+        obj = HistoryEvent()
+        obj.title = u'hello'
+        self.assertEqual(str(obj), u'History Event (hello)')
 
 browser_layer = ZopeFanstaticBrowserLayer(logografo.tests)
 
@@ -62,27 +68,27 @@ class MyFunctionalTestCase(unittest.TestCase):
 
         ##Test registered views for Logografo
         logografo = Logografo()
-        
+
         #Master macros
         view = queryMultiAdapter((logografo, TestRequest()), name='master')
         self.assertTrue(view is not None)
-        
+
         #index
         view = queryMultiAdapter((logografo, TestRequest()), name='index')
         self.assertTrue(view is not None)
 
-        #index
+        #listing
         view = queryMultiAdapter((logografo, TestRequest()), name='listing')
         self.assertTrue(view is not None)
-        
-        #add a EventBundle
+
+        #add an EventBundle
         view = queryMultiAdapter((logografo, TestRequest()), name='add-bundle')
         self.assertTrue(view is not None)
 
         #add a HistoryEvent
         view = queryMultiAdapter((logografo, TestRequest()), name='add-event')
         self.assertTrue(view is not None)
-        
+
         ##Now test registered views for EventBundle
         eventbundle = EventBundle()
 
@@ -90,11 +96,19 @@ class MyFunctionalTestCase(unittest.TestCase):
         view = queryMultiAdapter((eventbundle, TestRequest()), name='edit')
         self.assertTrue(view is not None)
 
+        #delete
+        view = queryMultiAdapter((eventbundle, TestRequest()), name='delete')
+        self.assertTrue(view is not None)
+
         ##Finally, test registered views for HistoryEvent
         historyevent = HistoryEvent()
 
         #edit
         view = queryMultiAdapter((historyevent, TestRequest()), name='edit')
+        self.assertTrue(view is not None)
+
+        #edit
+        view = queryMultiAdapter((historyevent, TestRequest()), name='delete')
         self.assertTrue(view is not None)
 
 
