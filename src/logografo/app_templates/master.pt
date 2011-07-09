@@ -10,7 +10,7 @@
 <metal:js define-slot="javascript">
 </metal:js>
 </head>
-<body>
+<body tal:define="site_root view/application_url">
 <div id="wrapper"><!-- #wrapper -->
   <nav><!-- top nav -->
     <div class="menu">
@@ -18,17 +18,17 @@
       <ul>
         <li>
           <a href="@@add-bundle"
-             tal:attributes="href python: view.url(context) + '/@@add-bundle'"
+             tal:attributes="href string: ${site_root}/@@add-bundle"
              i18n:translate="">[+] Bundle</a>
         </li>
         <li>
           <a href="@@add-event"
-             tal:attributes="href python: view.url(context) + '/@@add-event'"
+             tal:attributes="href string: ${site_root}/@@add-event"
              i18n:translate="">[+] Event</a>
         </li>
         <li>
           <a href="@@listing"
-             tal:attributes="href python: view.url(context) + '/@@listing'"
+             tal:attributes="href string: ${site_root}/@@listing"
              i18n:translate="">List of bundles and events</a>
         </li>
       </ul>
@@ -36,7 +36,10 @@
     </div>
   </nav><!-- end of top nav -->
   <header><!-- header -->
-    <h1 i18n:translate="">Logographer</h1>
+    <h1><a href="#" 
+           tal:attributes="href site_root"
+           i18n:translate="">Logographer</a>
+    </h1>
   </header><!-- end of header -->
 
   <metal:content define-slot="content">

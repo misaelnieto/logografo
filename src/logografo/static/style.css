@@ -62,7 +62,7 @@ background: #D4B65B;
 
 /* basics */
 
-h1 {
+h1, h1 a, h1 a:link, h1 a:visited, h1 a:hover, h1 a:active {
     font-family: 'Copse', serif;
     font-size: 100px;
     font-style: normal;
@@ -75,6 +75,11 @@ h1 {
     line-height: 1.2;
     text-align: center;
     color: #CC9900;
+    background-color: transparent;
+}
+
+h1 a:hover {
+    text-shadow: 4px 4px 4px #aaa;
 }
 
 h2,h3,h4,h5,h6 {
