@@ -35,6 +35,20 @@ class Index(grok.View):
         resource.logografo_timeline.need()
         resource.vtip.need()
 
+class Listing(grok.View):
+    """
+    Grok view with a list of bundles and history events
+    """
+
+    def update(self):
+        """
+        Udate data on grok's view object
+        """
+        resource.style.need()
+        resource.listing_css.need()
+        resource.jquery_min.need()
+        resource.listing_js.need()
+
 class Master(grok.View):
     """
     This is the main macro for consistent look & field

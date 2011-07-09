@@ -1,0 +1,42 @@
+.bundleTitle {
+    background: #D4B65B;
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 2em;
+    padding: 0.2em;
+    color: #333;
+    margin-top: 0.3em;
+}
+
+.bundleTitle:hover {
+    cursor: pointer;
+}
+
+.bundleContent {
+    display: block;
+    background: #ddd;
+    padding: 0.3em;
+    margin-left: 1em;
+}
+
+.bundleDescription, .bundleEditLink{
+    background: #eee;
+    padding: 0.1em 0.5em;
+}
+
+.bundleContent table {
+    width: 100%;
+    margin: 0.6em auto;
+}
+
+.bundleContent table th{
+    background: #FFF;
+}
+
+.bundleContent table .odd{
+    background: #EEE;
+}
+
+.bundleContent table .even{
+    background: #DDD;
+}

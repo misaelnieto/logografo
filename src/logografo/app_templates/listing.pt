@@ -1,0 +1,69 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  lang="en"
+  metal:use-macro="context/@@master/macros/main"
+  i18n:domain="logografo">
+<head></head>
+<body>
+  <metal:content fill-slot="content">
+    <section id="singlecol">
+      <article>
+        <h2 i18n:translate="">Available bundles and history events</h2>
+        <p i18n:translate="">
+          <img src="../images/label_64.png" width="64" height="64" alt="tag"
+            class="alignleft" tal:attributes="src static/images/label_64.png">
+            Click on the bundle title to open history tasks.
+        </p>
+        <br/><br/><br/>
+        <div>
+          <tal:data repeat="bundle context/getContents">
+          <div class="bundleTitle" tal:content="bundle/title">Scientific events</div>
+          <div class="bundleContent">
+            <div class="bundleDescription" tal:content="bundle/description">
+            Important scientific events in history
+            </div>
+            <div class="bundleEditLink">
+              <a href="#"
+                 tal:attributes="href python: view.url(bundle) + '/@@edit'"
+                 i18n:translate="">Edit
+              </a>
+            </div>
+            <table>
+              <tr>
+                <th i18n:translate="">Title</th>
+                <th i18n:translate="">Description</th>
+                <th i18n:translate="">Start</th>
+                <th i18n:translate="">End</th>
+                <th class="manage">&nbsp;</th>
+              </tr>
+              <tr tal:repeat="hevent bundle/getContents" 
+                  tal:attributes="class python: repeat['hevent'].odd and 'odd' or 'even'">
+                <td tal:content="hevent/title"></td>
+                <td tal:content="hevent/description"></td>
+                <td tal:content="hevent/start"></td>
+                <td tal:define="foo python: hevent.durationEvent and hevent.end or ''"
+                    tal:content="foo"></td>
+                <td>
+                  <a href="#"
+                     tal:attributes="href python: view.url(hevent) + '/@@edit'"
+                     i18n:translate="">Edit
+                  </a>
+                  &nbsp;|&nbsp;
+                  <a href="#"
+                     tal:attributes="href python: view.url(hevent) + '/@@delete'"
+                     i18n:translate="">Delete
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </div>
+          </tal:data>
+        </div>
+      </article>
+    </section>
+  </metal:content>
+</body>
+</html>
