@@ -15,10 +15,12 @@ simulates a web browser similar to Mozilla Firefox or IE.  We use that
 to test how our application behaves in a browser.  For more
 information, see http://pypi.python.org/pypi/zope.testbrowser.
 
-Create a browser and visit the instance you just created:
+Create a browser and visit the instance you just created (Also, login as
+manager):
 
     >>> from zope.app.wsgi.testlayer import Browser
     >>> browser = Browser()
+    >>> browser.addHeader('Authorization', 'Basic mgr:mgrpw')
     >>> browser.open('http://localhost/app')
 
 Check some basic information about the page you visit:
@@ -26,10 +28,33 @@ Check some basic information about the page you visit:
     >>> browser.url
     'http://localhost/app'
 
-    >>> '<h1>Logographer</h1>' in browser.contents #ellipsis
+    >>> 'Logographer' in browser.contents
     True
     
-Add a bundle:
+Add two bundles::
 
-    >>> browser.getLink('List of bundles and events').click()
+    >>> browser.getLink('[+] Bundle').click()
+    
+    >>> title = browser.getControl(name='form.title')
+    >>> title.value = u"World conflicts in the 90's"
+    >>> description = browser.getControl(name='form.description')
+    >>> description.value = u'A list of armed conflicts and uprises wolrdwide from 1990 until 1999'
+    >>> browser.getControl('Add bundle').click()
+    
+    >>> browser.getLink('[+] Bundle').click()
+    
+    >>> title = browser.getControl(name='form.title')
+    >>> title.value = u'Military expenditure in the 90's'
+    >>> description = browser.getControl(name='form.description')
+    >>> description.value = u'Some data on the military spending of diferent Countries on 2010'
+    >>> browser.getControl('Add bundle').click()
+    
+
+.. note:: The SIPRI Military Expenditure Database is the source of the military
+   expediture data. http://milexdata.sipri.org
+
+Add some events::
+
+    >>> browser.getLink('[+] Event').click()
+    
     

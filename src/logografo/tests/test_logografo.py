@@ -99,6 +99,10 @@ class MyFunctionalTestCase(unittest.TestCase):
         #delete
         view = queryMultiAdapter((eventbundle, TestRequest()), name='delete')
         self.assertTrue(view is not None)
+        
+        #JSON
+        view = queryMultiAdapter((eventbundle, TestRequest()), name='json')
+        self.assertTrue(view is not None)
 
         ##Finally, test registered views for HistoryEvent
         historyevent = HistoryEvent()

@@ -72,3 +72,32 @@ class Add(grok.AddForm):
         self.applyData(bundle, **data)
         self.context.addBundle(bundle)
         return self.redirect(self.url(self.context))
+
+class EventsDataJson(object):
+    wikiURL = None
+    wikiSection = None
+    dateTimeFormat = None
+    
+    def __init__(self, data, 
+                 wikiURL = None, wikiSection = None, 
+                 dateTimeFormat= None):
+        self.data = data
+        self.wikiURL = wikiURL
+        self.wikiSection = wikiSection
+        self.dateTimeFormat = dateTimeFormat
+
+
+class Serialize(grok.JSON):
+    """
+    Json representation of event bundle
+    """
+    def json(self):
+        return {'wikiURL': 'https://github.com/tzicatl/logografo',
+                'dateTimeFormat': 'Gregorian',
+                'events': [{'title': h.title,
+                            'description' : h.description,
+                            'durationEvent' : h.durationEvent,
+                            'start' : h.start,
+                            'end' : h.end} for h in self.context.getContents()]
+                }
+    
