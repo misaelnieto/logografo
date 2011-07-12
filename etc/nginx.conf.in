@@ -1,0 +1,12 @@
+http {
+  upstream mygrokinstance {
+    server ${host}:${port};
+  }
+  server {
+    listen       80;
+    server_name  ${hostname};
+    location / {
+      proxy_pass http://mygrokinstance/herodoto/++vh++http:${hostname}:80/++;
+    }
+  }
+}
