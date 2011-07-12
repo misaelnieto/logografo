@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Meaningless\n"
-"POT-Creation-Date: Fri Jul  8 18:47:53 2011\n"
+"POT-Creation-Date: Tue Jul 12 02:18:32 2011\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Zope 3 Developers <zope-dev@zope.org>\n"
@@ -22,6 +22,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: zope/app/locales/extract.py\n"
+
+#: logografo/app.py:71
+msgid "Do you really want to delete \"%s\"?"
+msgstr ""
+
+#: logografo/app.py:81
+msgid "Cancel"
+msgstr ""
+
+#: logografo/app.py:86
+#: logografo/app.py:95
+msgid "Delete canceled"
+msgstr ""
+
+#: logografo/app.py:89
+msgid "Do it"
+msgstr ""
 
 #: logografo/app_templates/index.pt:20
 msgid "<img src=\"${DYNAMIC_CONTENT}\" width=\"64\" height=\"64\" alt=\"tag\" class=\"alignleft\"> Make your selection of <em>bundled</em> events and see if they make up some trend."
@@ -31,27 +48,49 @@ msgstr ""
 msgid "Select the bundles to display"
 msgstr ""
 
-#: logografo/app_templates/index.pt:43
+#: logografo/app_templates/index.pt:46
 msgid "There are no bundles yet"
 msgstr ""
 
-#: logografo/app_templates/index.pt:45
+#: logografo/app_templates/index.pt:49
 msgid "Compare bundles"
 msgstr ""
 
-#: logografo/app_templates/index.pt:52
+#: logografo/app_templates/index.pt:58
 msgid "This page uses JavaScript to show a graphic timeline of events. Please, enable javascript for your browser."
 msgstr ""
 
-#: logografo/app_templates/master.pt:19
-msgid "Home"
+#: logografo/app_templates/listing.pt:14
+msgid "Available bundles and history events"
 msgstr ""
 
-#: logografo/app_templates/master.pt:21
-msgid "Login"
+#: logografo/app_templates/listing.pt:16
+msgid "<img src=\"${DYNAMIC_CONTENT}\" width=\"64\" height=\"64\" alt=\"tag\" class=\"alignleft\"> Click on the bundle title to open history events."
 msgstr ""
 
-#: logografo/app_templates/master.pt:22
+#: logografo/app_templates/listing.pt:29
+#: logografo/app_templates/listing.pt:55
+msgid "Edit"
+msgstr ""
+
+#: logografo/app_templates/listing.pt:34
+#: logografo/app_templates/listing.pt:60
+msgid "Delete"
+msgstr ""
+
+#: logografo/app_templates/listing.pt:42
+msgid "Description"
+msgstr ""
+
+#: logografo/app_templates/listing.pt:43
+msgid "Start"
+msgstr ""
+
+#: logografo/app_templates/listing.pt:44
+msgid "End"
+msgstr ""
+
+#: logografo/app_templates/master.pt:20
 msgid "[+] Bundle"
 msgstr ""
 
@@ -59,40 +98,41 @@ msgstr ""
 msgid "[+] Event"
 msgstr ""
 
-#: logografo/app_templates/master.pt:28
-msgid "About"
+#: logografo/app_templates/master.pt:30
+msgid "List of bundles and events"
 msgstr ""
 
-#: logografo/app_templates/master.pt:36
+#: logografo/app_templates/master.pt:39
 msgid "Logographer"
 msgstr ""
 
-#: logografo/app_templates/master.pt:43
+#: logografo/app_templates/master.pt:49
 msgid "<img src=\"../images/label_64.png\" width=\"64\" height=\"64\" alt=\"tag\" class=\"alignleft\"> Make your selection of <em>bundled</em> events and see if they make up some trend."
 msgstr ""
 
-#: logografo/app_templates/master.pt:56
+#: logografo/app_templates/master.pt:62
 msgid "About this thing"
 msgstr ""
 
-#: logografo/app_templates/master.pt:58
+#: logografo/app_templates/master.pt:64
 msgid "Who did this?"
 msgstr ""
 
-#: logografo/app_templates/master.pt:60
+#: logografo/app_templates/master.pt:66
 msgid "Powered by Grok"
 msgstr ""
 
-#: logografo/app_templates/master.pt:61
+#: logografo/app_templates/master.pt:67
 msgid "Original template artwork"
 msgstr ""
 
-#: logografo/app_templates/master.pt:65
+#: logografo/app_templates/master.pt:71
 msgid "Legalese"
 msgstr ""
 
 #: logografo/bundle.py:17
 #: logografo/historyevent.py:17
+#: logografo/app_templates/listing.pt:41
 msgid "Title"
 msgstr ""
 
@@ -104,37 +144,16 @@ msgstr ""
 msgid "Just a brief description of this bundle"
 msgstr ""
 
-#: logografo/bundle.py:70
+#: logografo/bundle.py:52
+msgid "Event Bundle (%s)"
+msgstr ""
+
+#: logografo/bundle.py:63
 msgid "Add a bundle of events"
 msgstr ""
 
-#: logografo/bundle.py:76
+#: logografo/bundle.py:69
 msgid "Add Bundle"
-msgstr ""
-
-#: logografo/bundle_templates/add.pt:25
-#: logografo/bundle_templates/add.pt:44
-#: logografo/bundle_templates/add.pt:50
-#: logografo/historyevent_templates/add.pt:36
-#: logografo/historyevent_templates/add.pt:54
-#: logografo/historyevent_templates/add.pt:60
-msgid "${DYNAMIC_CONTENT}"
-msgstr ""
-
-#: logografo/historyevent.py:108
-msgid "Select event bundle"
-msgstr ""
-
-#: logografo/historyevent.py:109
-msgid "Every event must be inside a bundle"
-msgstr ""
-
-#: logografo/historyevent.py:113
-msgid "Add a History Event"
-msgstr ""
-
-#: logografo/historyevent.py:119
-msgid "Add"
 msgstr ""
 
 #: logografo/historyevent.py:18
@@ -167,6 +186,26 @@ msgstr ""
 
 #: logografo/historyevent.py:38
 msgid "When adding duration events, you must provide the end date."
+msgstr ""
+
+#: logografo/historyevent.py:50
+msgid "History Event (%s)"
+msgstr ""
+
+#: logografo/historyevent.py:68
+msgid "Select event bundle"
+msgstr ""
+
+#: logografo/historyevent.py:69
+msgid "Every event must be inside a bundle"
+msgstr ""
+
+#: logografo/historyevent.py:73
+msgid "Add a History Event"
+msgstr ""
+
+#: logografo/historyevent.py:79
+msgid "Add"
 msgstr ""
 
 #: logografo/historyevent_templates/add.pt:20

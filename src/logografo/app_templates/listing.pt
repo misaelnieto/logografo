@@ -15,7 +15,7 @@
         <p i18n:translate="">
           <img src="../images/label_64.png" width="64" height="64" alt="tag"
             class="alignleft" tal:attributes="src static/images/label_64.png">
-            Click on the bundle title to open history tasks.
+            Click on the bundle title to open history events.
         </p>
         <br/><br/><br/>
         <div>

@@ -15,15 +15,14 @@
         <form action="." tal:attributes="action request/URL" method="post"
           class="edit-form" enctype="multipart/form-data">
 
-          <h2 i18n:translate=""
-            tal:condition="view/label"
+          <h2 tal:condition="view/label"
             tal:content="view/label">Label</h2>
 
           <div class="form-status"
             tal:define="status view/status"
             tal:condition="status">
 
-            <div i18n:translate="" tal:content="view/status">
+            <div tal:content="view/status">
               Form status summary
             </div>
 
@@ -42,14 +41,12 @@
                     <label tal:condition="python:hint"
                       tal:attributes="for widget/name">
                     <span class="required" tal:condition="widget/required"
-                    >*</span><span i18n:translate=""
-                      tal:content="widget/label">label</span>
+                    >*</span><span tal:content="widget/label">label</span>
                     </label>
                     <label tal:condition="python:not hint"
                       tal:attributes="for widget/name">
                     <span class="required" tal:condition="widget/required"
-                    >*</span><span i18n:translate=""
-                      tal:content="widget/label">label</span>
+                    >*</span><span tal:content="widget/label">label</span>
                     </label>
                   </td>
                   <td class="field">

@@ -33,7 +33,7 @@
             tal:define="status view/status"
             tal:condition="status">
 
-            <div i18n:translate="" tal:content="view/status">
+            <div tal:content="view/status">
               Form status summary
             </div>
 
@@ -51,14 +51,12 @@
                     <label tal:condition="python:hint"
                       tal:attributes="for widget/name">
                     <span class="required" tal:condition="widget/required"
-                    >*</span><span i18n:translate=""
-                      tal:content="widget/label">label</span>
+                    >*</span><span tal:content="widget/label">label</span>
                     </label>
                     <label tal:condition="python:not hint"
                       tal:attributes="for widget/name">
                     <span class="required" tal:condition="widget/required"
-                    >*</span><span i18n:translate=""
-                      tal:content="widget/label">label</span>
+                    >*</span><span tal:content="widget/label">label</span>
                     </label>
                   </td>
                   <td class="field">

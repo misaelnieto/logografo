@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Meaningless\n"
-"POT-Creation-Date: Fri Jul  8 18:46:17 2011\n"
+"POT-Creation-Date: Tue Jul 12 02:18:32 2011\n"
 "PO-Revision-Date: 2011-07-08 02:37-0500\n"
 "Last-Translator: Noe Misael Nieto Arroyo <nnieto@noenieto.com>\n"
 "Language-Team: Spanish\n"
@@ -24,6 +24,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: zope/app/locales/extract.py\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: logografo/app.py:71
+msgid "Do you really want to delete \"%s\"?"
+msgstr "¿Realmente quieres borrar \"%s\"?"
+
+#: logografo/app.py:81
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: logografo/app.py:86 logografo/app.py:95
+msgid "Delete canceled"
+msgstr "Se canceló el borrado"
+
+#: logografo/app.py:89
+msgid "Do it"
+msgstr "Hazlo"
 
 #: logografo/app_templates/index.pt:20
 msgid ""
@@ -39,15 +55,15 @@ msgstr ""
 msgid "Select the bundles to display"
 msgstr "Selecciona los ramilletes que se van a mostrar"
 
-#: logografo/app_templates/index.pt:43
+#: logografo/app_templates/index.pt:46
 msgid "There are no bundles yet"
 msgstr "Todavía no hay ramilletes de eventos"
 
-#: logografo/app_templates/index.pt:45
+#: logografo/app_templates/index.pt:49
 msgid "Compare bundles"
 msgstr "Comparar ramilletes"
 
-#: logografo/app_templates/index.pt:52
+#: logografo/app_templates/index.pt:58
 msgid ""
 "This page uses JavaScript to show a graphic timeline of events. Please, "
 "enable javascript for your browser."
@@ -55,16 +71,40 @@ msgstr ""
 "Esta página usa JavaScript para mostrar una línea de tiempo gráfica con "
 "eventos. Por favor, habilita JavaScript en tu navegador."
 
-#: logografo/app_templates/master.pt:19
-msgid "Home"
+#: logografo/app_templates/listing.pt:14
+msgid "Available bundles and history events"
+msgstr "Ramilletes y eventos históricos disponibles"
+
+#: logografo/app_templates/listing.pt:16
+msgid ""
+"<img src=\"${DYNAMIC_CONTENT}\" width=\"64\" height=\"64\" alt=\"tag\" class="
+"\"alignleft\"> Click on the bundle title to open history events."
+msgstr ""
+"<img src=\"${DYNAMIC_CONTENT}\" width=\"64\" height=\"64\" alt=\"tag\" class="
+"\"alignleft\"> Click en el título del ramillete para abrir los eventos "
+"históricos."
+
+#: logografo/app_templates/listing.pt:29 logografo/app_templates/listing.pt:55
+msgid "Edit"
+msgstr "Editar"
+
+#: logografo/app_templates/listing.pt:34 logografo/app_templates/listing.pt:60
+msgid "Delete"
+msgstr "Borrar"
+
+#: logografo/app_templates/listing.pt:42
+msgid "Description"
+msgstr "Descripción"
+
+#: logografo/app_templates/listing.pt:43
+msgid "Start"
 msgstr "Inicio"
 
-#: logografo/app_templates/master.pt:21
-msgid "Login"
-msgstr "Entrar"
+#: logografo/app_templates/listing.pt:44
+msgid "End"
+msgstr "Final"
 
-#: logografo/app_templates/master.pt:22
-#, fuzzy
+#: logografo/app_templates/master.pt:20
 msgid "[+] Bundle"
 msgstr "[+] Ramillete"
 
@@ -72,15 +112,15 @@ msgstr "[+] Ramillete"
 msgid "[+] Event"
 msgstr "[+] Evento"
 
-#: logografo/app_templates/master.pt:28
-msgid "About"
-msgstr "Acerca de"
+#: logografo/app_templates/master.pt:30
+msgid "List of bundles and events"
+msgstr "Lista de ramilletes y eventos"
 
-#: logografo/app_templates/master.pt:36
+#: logografo/app_templates/master.pt:39
 msgid "Logographer"
 msgstr "Logógrafo"
 
-#: logografo/app_templates/master.pt:43
+#: logografo/app_templates/master.pt:49
 msgid ""
 "<img src=\"../images/label_64.png\" width=\"64\" height=\"64\" alt=\"tag\" "
 "class=\"alignleft\"> Make your selection of <em>bundled</em> events and see "
@@ -90,27 +130,28 @@ msgstr ""
 "class=\"alignleft\"> Selecciona algunos <em>ramilletes</em> de eventos and "
 "ve si encuentras alguna tendencia."
 
-#: logografo/app_templates/master.pt:56
+#: logografo/app_templates/master.pt:62
 msgid "About this thing"
 msgstr "Acerca de esta cosa"
 
-#: logografo/app_templates/master.pt:58
+#: logografo/app_templates/master.pt:64
 msgid "Who did this?"
 msgstr "¿Quién hizo esto?"
 
-#: logografo/app_templates/master.pt:60
+#: logografo/app_templates/master.pt:66
 msgid "Powered by Grok"
 msgstr "Está hecho con Grok"
 
-#: logografo/app_templates/master.pt:61
+#: logografo/app_templates/master.pt:67
 msgid "Original template artwork"
 msgstr "Plantilla ẃeb original"
 
-#: logografo/app_templates/master.pt:65
+#: logografo/app_templates/master.pt:71
 msgid "Legalese"
 msgstr "Términos legales"
 
 #: logografo/bundle.py:17 logografo/historyevent.py:17
+#: logografo/app_templates/listing.pt:41
 msgid "Title"
 msgstr "Título"
 
@@ -124,38 +165,17 @@ msgstr ""
 msgid "Just a brief description of this bundle"
 msgstr "Una breve descripción de este ramillete"
 
-#: logografo/bundle.py:70
+#: logografo/bundle.py:52
+msgid "Event Bundle (%s)"
+msgstr "Ramillete de Eventos (%s)"
+
+#: logografo/bundle.py:63
 msgid "Add a bundle of events"
 msgstr "Añadir un ramillete de eventos"
 
-#: logografo/bundle.py:76
+#: logografo/bundle.py:69
 msgid "Add Bundle"
 msgstr "Añadir Ramillete"
-
-#: logografo/bundle_templates/add.pt:25 logografo/bundle_templates/add.pt:44
-#: logografo/bundle_templates/add.pt:50
-#: logografo/historyevent_templates/add.pt:36
-#: logografo/historyevent_templates/add.pt:54
-#: logografo/historyevent_templates/add.pt:60
-msgid "${DYNAMIC_CONTENT}"
-msgstr ""
-
-#: logografo/historyevent.py:108
-#, fuzzy
-msgid "Select event bundle"
-msgstr "Selecciona los ramilletes que se van a mostrar"
-
-#: logografo/historyevent.py:109
-msgid "Every event must be inside a bundle"
-msgstr ""
-
-#: logografo/historyevent.py:113
-msgid "Add a History Event"
-msgstr "Añadir Evento Histórico"
-
-#: logografo/historyevent.py:119
-msgid "Add"
-msgstr "Añadir"
 
 #: logografo/historyevent.py:18
 msgid "Write a title for the Historic Event"
@@ -189,6 +209,26 @@ msgstr "El evento terminó en esta fecha"
 msgid "When adding duration events, you must provide the end date."
 msgstr ""
 "Cuando añades eventos que tienen duración necesitas escribir la fecha de fin."
+
+#: logografo/historyevent.py:50
+msgid "History Event (%s)"
+msgstr "Añadir Evento (%s)"
+
+#: logografo/historyevent.py:68
+msgid "Select event bundle"
+msgstr "Selecciona el ramillete de eventos"
+
+#: logografo/historyevent.py:69
+msgid "Every event must be inside a bundle"
+msgstr "Todos los eventos tendrán que estar dentro de un ramillete."
+
+#: logografo/historyevent.py:73
+msgid "Add a History Event"
+msgstr "Añadir Evento Histórico"
+
+#: logografo/historyevent.py:79
+msgid "Add"
+msgstr "Añadir"
 
 #: logografo/historyevent_templates/add.pt:20
 msgid "Events must be grouped together in bundles. Try adding one first."
